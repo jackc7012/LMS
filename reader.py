@@ -23,7 +23,7 @@ def add_reader(reader_list) :
     c.execute(string)
     r = c.fetchall()
     if len(r) == 1 :
-        print "此id已绑定读者，请更换id号"
+        print("此id已绑定读者，请更换id号")
         reader_list[1] = r[0][0]
         ret = -1
     else :
@@ -45,7 +45,7 @@ def delete_reader(reader_list) :
     c.execute(string)
     r = c.fetchall()
     if len(r) == 0 :
-        print "查无此读者"
+        print("查无此读者")
         ret = -1
     else :
         reader_list[1] = r[0][0]
@@ -63,4 +63,4 @@ def show_reader_list(reader_list) :
     c.execute(string)
     r = c.fetchall()
     for l in r :
-        reader_list.append([str(l[0]), str(r[1], str(r[2]), str(r[3])
+        reader_list.append([str(l[0]), str(r[1]), str(r[2]), str(r[3])])

@@ -40,7 +40,7 @@ def borrow_book(reader_id, book_list) :
     c.execute(string)
     r = c.fetchall()
     if len(r) == 1 :
-        
+        pass
     con.close()
     return ret
 
@@ -62,7 +62,7 @@ def book_borrow(reader_id, book_list) :
     book_borrow_list = []
     for l in book_list :
         if l not in book_config_list or book_config.get(l, "book_remain_num") == "0" :
-            print "书籍id %s未有库存" % (l)
+            print("书籍id %s未有库存" % (l))
         else :
             book_borrow_list.append(l)
 
@@ -74,7 +74,7 @@ def book_borrow(reader_id, book_list) :
         book_borrow_list_num = len(book_borrow_list)
         #超过8本，则只能借出8本
         if num + book_borrow_list_num > 8 :
-            print "一人最多借8本,此次借书前%d本优先借书" % (8 - num)
+            print("一人最多借8本,此次借书前%d本优先借书" % (8 - num))
             for i in xrange(0, num) :
                 book_borrow_list.pop()
                 
